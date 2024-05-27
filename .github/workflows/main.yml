@@ -1,0 +1,16 @@
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up WSL (Windows)
+      uses: Vampire/setup-wsl@v3.1.0
+      with:
+        distribution: Debian
